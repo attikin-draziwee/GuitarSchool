@@ -1,0 +1,45 @@
+.hero
+    overflow: hidden
+    min-height: 800px
+    background-color: #F2F2F2
+    padding-top: 14px
+    &__container
+    &__wrapper
+        position: relative
+        min-height: 711px
+        height: 100%
+        display: flex
+        &-left
+            position: relative
+            flex-basis: 60%
+        &-right
+            max-width: 500px
+            position: relative
+            z-index: 5
+            display: flex
+            flex-direction: column
+            justify-content: center
+    &__content
+        transform: translateY(-90px)
+        display: flex
+        flex-direction: column
+        width: 73%
+    &__img
+        pointer-events: none
+        position: absolute
+        z-index: 4
+        top: 0
+        animation: fade-in .9s
+    &__list
+        justify-content: flex-end
+    &__title
+        margin-bottom: 12px
+    &__desc p
+        line-height: 1.75em
+        font-weight: 300
+        margin-bottom: 22px
+    &__question
+        transform: translateX(50px)
+    &__donut
+        right: -20px
+        top: -25px

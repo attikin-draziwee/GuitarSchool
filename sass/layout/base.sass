@@ -1,0 +1,262 @@
+$accent-color-blue: #456BCC
+$accent-color-orange: #E3513D
+
+* 
+    box-sizing: border-box
+
+html, body
+    height: 100%
+body
+    font-family: 'Montserrat'
+    font-size: 16px
+    font-weight: normal
+    line-height: 1.42em
+    color: #000
+    -webkit-font-smoothing: antialised
+    -moz-osx-font-smoothing: grayscale
+    margin: 0
+
+h1,h2,h3,h4,h5,h6
+    margin: 0
+    font-weight: normal
+ul
+    list-style: none
+    padding: 0
+    margin: 0
+    display: flex
+a
+    text-decoration: none
+    color: inherit
+p
+    margin: 0
+    padding: 0
+img
+    display: block
+
+@keyframes fade-in
+    from
+        transform: translateY(70px)
+        opacity: 0
+    to  
+        opacity: 1
+@keyframes stick-blue
+    from
+        opacity: 0
+        transform: rotate(0deg)
+    to
+        opacity: 1
+        transform: rotate(25deg)
+@keyframes stick-orange
+    from
+        opacity: 0
+        transform: rotate(0deg)
+    to
+        opacity: 1
+        transform: rotate(40deg)
+@keyframes stick-gray
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(55deg)
+@keyframes question-text
+    from
+        transform: translateX(-25px)
+        opacity: 0
+    to
+@keyframes buttons
+    from
+        transform: translateY(50px)
+        color: #F2F2F2
+        background-color: #F2F2F2
+    to
+@keyframes donut
+    from
+        transform: scale(0) rotate(1080deg)
+        opacity: 0
+    to
+@keyframes achive
+    from
+        transform: scale(1)
+    50%
+        transform: scale(1.15)
+    to
+        transform: scale(1)
+@keyframes achive-icon
+    from
+
+    25%
+        transform: rotate(-25deg)
+    50%
+        transform: rotate(0deg)
+    75%
+        transform: rotate(25deg)
+    to
+
+
+.wrapper
+    min-height: 100%
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    &__content
+        flex: 1
+.container
+    max-width: 1140px
+    width: 100%
+    margin: 0 auto
+.menu
+    font-size: 18px
+    font-weight: 600
+    .menu__list
+        .menu__item
+            margin-right: 47px
+            transition: color .3s
+            &:last-of-type
+                margin-right: 0
+            &:nth-of-type(even):hover
+                color: $accent-color-blue
+            &:nth-of-type(odd):hover
+                color: $accent-color-orange
+.stick
+    position: relative
+    &__list
+        position: absolute
+        top: -130px
+        left: 0px
+    &__item
+        position: absolute
+        width: 233px
+        height: 667px
+        border-radius: 189px
+        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.25)
+        transform-origin: 50% 83%
+        opacity: 0
+        transition: transform 1.2s cubic-bezier(1,0,.70,.96)
+        &--blue
+            background-color: $accent-color-blue
+            animation: stick-blue 1s forwards .8s ease-out
+        &--orange
+            background-color: $accent-color-orange
+            animation: stick-orange 1s forwards .5s ease-out
+            z-index: 2
+        &--gray
+            opacity: 1
+            background-color: #E7E7E7
+            animation: stick-gray 1s forwards .2s ease-out
+.logo
+    filter: brightness(1)
+    transition: filter .3s
+    &:hover
+        filter: brightness(.3)
+        transition: filter .3s
+.social
+    &__list
+    &__item
+        margin-right: 21px
+        padding: 2px
+        border-radius: 50%
+        background: linear-gradient(to right, $accent-color-blue, $accent-color-orange)
+        transition: transform .2s ease-out
+        &:nth-last-of-type()
+            margin-right: 0
+        &:hover
+            transform: scale(1.2)
+            transition: transform .2s
+    &__link
+        width: 33px
+        height: 32px
+        border-radius: 50%
+        background-color: black
+        display: flex
+    &__icon
+        margin: auto
+.title
+    font-size: 64px
+    font-weight: bold
+    line-height: 1.2em
+    letter-spacing: 0.05em
+    &--underline
+        text-decoration: underline
+.button
+    animation: buttons .3s backwards 0.1s
+    display: inline-block
+    height: fit-content
+    vertical-align: middle
+    text-align: center
+    color: #FFF
+    padding: 3px 25px
+    background-color: $accent-color-blue
+    border-radius: 64px
+    font-size: 14px
+    font-weight: 500
+    line-height: 1.78em
+    transition: .2s
+    &:hover
+        filter: brightness(1.2)
+        transform: scale(1.05)
+        transition: .5s
+.question
+    &__link
+        display: flex
+        max-width: 150px
+        width: 100%
+        &:hover
+            font-weight: 500
+    &__img
+        margin-right: 19px
+    &__text
+        animation: question-text .8s backwards
+.donut
+    animation: donut 1.2s cubic-bezier(0,1,1,1)
+    position: absolute
+    z-index: -1
+    width: 208px
+    height: 208px
+    background: url('../img/decoration/donut.svg') no-repeat
+.circle
+    animation: donut 1.2s cubic-bezier(0,1,1,1)
+    position: absolute
+    z-index: 0
+    width: 158px
+    height: 158px
+    background: url('../img/decoration/circle.svg') no-repeat
+.cover
+    border-radius: 10px
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.25)
+    position: relative
+    width: 100%
+    height: 315px
+    overflow: hidden
+    &__img
+        position: absolute
+        left: 0
+        transform: translateY(180px)
+        transition: transform .3s
+        &[src$="guitar-3.png"]
+            left: 50px
+    &:hover .cover__img
+        transform: translateY(20px)
+        transition: transform .3s
+    &:hover .cover__title
+        font-weight: 600
+        transition: font-weight
+    &__title
+        position: absolute
+        font-size: 32px
+        font-weight: 500
+        letter-spacing: 0.05em
+        line-height: 1.22em
+        text-align: center
+        right: 84px
+        top: 50%
+        transform: translateY(-50%) translateX(50%) rotate(90deg)
+        transition: font-weight
+    &--gray
+        background-color: #E7E7E7
+    &--blue
+        background-color: $accent-color-blue
+    &--orange
+        background-color: $accent-color-orange
+.buttons
+    display: flex
+    justify-content: space-between

@@ -1,0 +1,15 @@
+extends ./base/pattern.pug
+
+append variables
+    -title = 'Я Виктор'
+append style
+    link(rel="stylesheet" href="./style/main.css")
+
+append content 
+    include ./blocks/hero.pug
+    main.page-content
+        include ./blocks/experience.pug
+        include ./blocks/teach.pug
+
+append footer
+    include ./blocks/footer.pug
