@@ -33,64 +33,6 @@ p
 img
     display: block
 
-@keyframes fade-in
-    from
-        transform: translateY(70px)
-        opacity: 0
-    to  
-        opacity: 1
-@keyframes stick-blue
-    from
-        opacity: 0
-        transform: rotate(0deg)
-    to
-        opacity: 1
-        transform: rotate(25deg)
-@keyframes stick-orange
-    from
-        opacity: 0
-        transform: rotate(0deg)
-    to
-        opacity: 1
-        transform: rotate(40deg)
-@keyframes stick-gray
-    from
-        transform: rotate(0deg)
-    to
-        transform: rotate(55deg)
-@keyframes question-text
-    from
-        transform: translateX(-25px)
-        opacity: 0
-    to
-@keyframes buttons
-    from
-        transform: translateY(50px)
-        color: #F2F2F2
-        background-color: #F2F2F2
-    to
-@keyframes donut
-    from
-        transform: scale(0) rotate(1080deg)
-        opacity: 0
-    to
-@keyframes achive
-    from
-        transform: scale(1)
-    50%
-        transform: scale(1.15)
-    to
-        transform: scale(1)
-@keyframes achive-icon
-    from
-
-    25%
-        transform: rotate(-25deg)
-    50%
-        transform: rotate(0deg)
-    75%
-        transform: rotate(25deg)
-    to
 
 
 .wrapper
@@ -117,6 +59,33 @@ img
                 color: $accent-color-blue
             &:nth-of-type(odd):hover
                 color: $accent-color-orange
+    &--active
+        animation: adaptive-menu 1.2s forwards
+        position: fixed
+        z-index: 20
+        background-color: rgba(69, 107, 204, .8)
+        backdrop-filter: blur(10px)
+        right: 0
+        top: 0
+        height: 100vh
+        width: 50vw
+        color: #FFF
+        .menu
+            &__list
+                font-size: 50px
+                height: 100%
+                flex-direction: column
+                justify-content: space-evenly
+                align-items: center
+                .menu__item
+                    margin-right: 0
+                    &:not(.any):hover
+                        color: #FFF
+                    &:not(.any):hover
+                        color: #FFF
+            .menu__link
+                text-align: center
+                
 .stick
     position: relative
     &__list
@@ -170,6 +139,42 @@ img
         display: flex
     &__icon
         margin: auto
+.hamburger
+    position: fixed
+    z-index: 100
+    right: 50px
+    width: 64px
+    height: 48px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    display: none
+    transform-origin: center
+    &--active
+        transition: .5s all
+        .hamburger__line:nth-of-type(1)
+            background-color: #fff
+            transform: rotate(-45deg) translateY(30px)
+        .hamburger__line:nth-of-type(2)
+            background-color: #fff
+            display: none
+        .hamburger__line:nth-of-type(3)
+            background-color: #fff
+            transform: rotate(45deg) translateY(-30px)
+    &__line
+        transition: .5s all
+        position: absolute
+        background-color: #000
+        width: 100%
+        height: 3px
+        &:nth-of-type(1)
+            top: 0
+        &:nth-of-type(2)
+            top: 50%
+            transform: translateY(-50%)
+        &:nth-of-type(3)
+            bottom: 0
+
 .title
     font-size: 64px
     font-weight: bold
@@ -184,7 +189,7 @@ img
     vertical-align: middle
     text-align: center
     color: #FFF
-    padding: 3px 25px
+    padding: 0.5em 1.6em
     background-color: $accent-color-blue
     border-radius: 64px
     font-size: 14px
