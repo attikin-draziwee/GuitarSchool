@@ -1,4 +1,5 @@
 .footer {
+  
   background: url('../img/vulture.webp') left bottom / 487px 353px no-repeat;
   @include adaptive($laptop) {
     background-position: -15% bottom;
