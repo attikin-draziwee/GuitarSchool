@@ -49,6 +49,7 @@
     z-index: 2;
   }
   &__content {
+    position: relative;
     width: 100%;
     height:fit-content;
     justify-content: flex-start;
@@ -67,6 +68,7 @@
   &__item {
     max-width: 360px;
     width: 100%;
+    left: 0%;
     @include adaptive($laptop) {
       margin-right: 1rem;
       &:last-child {
@@ -75,9 +77,9 @@
     }
     @include adaptive($tablet) {
       position: relative;
-      left: 0;
       flex-shrink: 0;
       width: 100%;
+      transition: .3s ease;
     }
     &:nth-child(1) > .teach__card {
         background-color: #E7E7E7;

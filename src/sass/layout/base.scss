@@ -240,3 +240,47 @@ section, header, footer {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.arrow {
+  display: none;
+  @include adaptive($tablet) {
+    display: block;
+  }
+    &__left, &__right {
+      cursor: pointer;
+      z-index: 15;
+      position: absolute;
+      content: '';
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, lighten($accent-blue, 15%), lighten($accent-orange, 15%));
+      top: 38%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include adaptive($phone) {
+        width: 13vw;
+        height: 13vw;
+        top: 90%;
+      }
+    }
+    &__left {
+      left: 8%;
+      @include adaptive($phone) {
+        left: 1%;
+      }
+    }
+    &__right {
+      right: 8%;
+      @include adaptive($phone) {
+        right: 1%;
+      }
+    }
+    &__icon {
+      width: 50%;
+      height: 50%;
+      fill: white;
+    }
+}
