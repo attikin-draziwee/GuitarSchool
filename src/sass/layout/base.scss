@@ -126,6 +126,32 @@ section, header, footer {
   @include adaptive($phone) {
     display: flex;
   }
+  &__menu {
+    display: flex;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    > .menu__list {
+      flex-direction: column;
+      height: 30vh;
+    }
+    & .menu__link {
+      color: white;
+      font-size: pxToRem(64px);
+    }
+  }
+  &-display {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    backdrop-filter: blur(15px);
+  }
 }
 
 .social {
@@ -248,7 +274,7 @@ section, header, footer {
   }
     &__left, &__right {
       cursor: pointer;
-      z-index: 15;
+      z-index: 8;
       position: absolute;
       content: '';
       width: 75px;
