@@ -3,7 +3,6 @@
 }
 
 html, body {
-  overflow: hidden;
   height: 100%;
   font-family: Montserrat;
   font-size: 16px;
@@ -41,7 +40,6 @@ section, header, footer {
 
 .wrapper {
   overflow: hidden;
-  height: 100%;
   display: flex;
   flex-direction: column;
   &-content {
@@ -75,8 +73,8 @@ section, header, footer {
   @include adaptive($phone) {
     display: none;
   }
-  max-width: 325px;
-  width: 100%;
+  min-width: 325px;
+  width: fit-content;
   &__list {
     justify-content: space-between;
   }
@@ -111,5 +109,92 @@ section, header, footer {
   }
   @include adaptive($phone) {
     display: flex;
+  }
+}
+
+.social {
+  min-width: 201px;
+  width: fit-content;
+  &__list {
+    justify-content: space-between;
+  }
+  &__item, &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__item {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, $accent-blue, $accent-orange);
+    transition: transform .3s ease;
+    &:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0px 0px 4px rgba(0,0,0,.2));
+    }
+  }
+  &__link {
+    border-radius: 50%;
+    background-color: black;
+    height: 32px;
+    width: 32px;
+  }
+  &__icon {
+    fill: white;
+    width: 65%;
+    height: 65%;
+  }
+}
+
+.heading {
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: .05em;
+  line-height: normal;
+  &--under {
+    border-bottom: 4px solid black;
+  }
+}
+
+.button {
+  display: inline-block;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  line-height: 150%;
+  padding: 3px 25px;
+  background-color: $accent-blue;
+  border-radius: 4.5em;
+  transition: .3s ease;
+  &:hover {
+    transform: scale(1.1) ;
+    filter: drop-shadow(0px 0px 8px rgba(0,0,0,.3));
+    background-color: lighten($accent-blue,  5%);
+  }
+}
+
+.question {
+  &__link {
+    display: flex;
+    flex-direction: row;
+    &:hover {
+      text-decoration: underline;
+      .question__icon {
+        animation: shake .4s ease;
+      }
+    }
+  }
+  &__icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 19px;
+    transition: .3s ease;
+  }
+  &__desc {
+    max-width: 83px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 150%;
   }
 }

@@ -1,2 +1,33 @@
 section.hero: .container.hero__container
-  
+  .hero__promo
+    img.hero__img(
+      alt="Гитарист играет за гитарой",
+      src="./img/guitarist.webp")
+    ul.hero__dec
+      li.hero__dec-item
+      li.hero__dec-item
+      li.hero__dec-item
+  .hero__main
+    .hero__content
+      .hero__offer
+        .social.hero__social: ul.social__list
+          li.social__item: a.social__link(href="#"): svg.social__icon()
+            use(xlink:href="./icons/sprite.svg#socials--telegram")
+          li.social__item: a.social__link(href="#"): svg.social__icon()
+            use(xlink:href="./icons/sprite.svg#socials--skype")
+          li.social__item: a.social__link(href="#"): svg.social__icon()
+            use(xlink:href="./icons/sprite.svg#socials--facebook")
+          li.social__item: a.social__link(href="#"): svg.social__icon()
+            use(xlink:href="./icons/sprite.svg#socials--tiktok")
+        .hero__title.heading #[span.heading--under Я ]Виктор
+        h1.hero__heading.
+          Репетитор игры на гитаре с семилетним опытом преподавания
+      .hero__CTA
+        a.button(href="#") Забронировать <br/> урок
+        .question: a.question__link(href='#')
+          svg.question__icon
+            defs: linearGradient(id="linear-gradient")
+              stop(offset="0%" stop-color="#456BCC")
+              stop(offset="100%" stop-color="#E3513D")
+            use(xlink:href="./icons/sprite.svg#chat" fill="url(#linear-gradient)")
+          .question__desc Есть вопросы?

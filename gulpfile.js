@@ -34,7 +34,7 @@ task('browser-sync', function () {
     open: false
   });
 });
-task('clean', () => src([`${DIST}/*`], { read: false })
+task('clean', () => src(`{${DIST}/*`, { read: false, ignore: `${DIST}/img` })
   .pipe(clean()));
 
 
@@ -51,7 +51,7 @@ task('copy:svg', () => src(`${SRC}/icons/**/*.svg`)
   .pipe(svgo({
     plugins: [{
       removeAttrs: {
-        attrs: '(fill|stroke|style|width|height|data.*)'
+        attrs: '(fill|stroke)'
       }
     }]
   }))
@@ -102,7 +102,8 @@ task('copy:fonts', () => src(`${SRC}/fonts/converted/**/*`)
   .pipe(reload({ stream: true }))
 );
 
+task('reloading', () => reload({ stream: true }));
 
-watch([SRC, `!${SRC}/fonts/**/*`], series('clean', parallel('pug', 'copy:img', 'copy:fonts', 'sass', 'js', 'copy:svg')));
+watch([SRC, `!${SRC}/fonts/**/*`], series('clean', parallel('pug', 'copy:fonts', 'sass', 'js', 'copy:svg')));
 task('default', series('clean', parallel('pug', 'copy:img', 'sass', 'js', 'copy:svg', 'copy:fonts'), 'browser-sync'));
 task('fontsGen', series('convertfonts'));
