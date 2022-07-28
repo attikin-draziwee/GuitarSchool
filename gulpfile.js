@@ -7,8 +7,6 @@ const isProd = process.env.NODE_ENV;
 const browser = require('browser-sync').create();
 const reload = browser.reload;
 const concat = require('gulp-concat');
-const rename = require('gulp-rename');
-
 const pug = require('gulp-pug');
 const minImg = require('gulp-imagemin');
 const webpImg = require('gulp-webp');
@@ -19,7 +17,6 @@ const sass = require('gulp-sass')(require('sass'));
 const glob = require('gulp-sass-glob');
 const cleanCss = require('gulp-clean-css');
 const prefix = require('gulp-autoprefixer');
-const pxToRem = require('gulp-smile-px2rem');
 // JS -> legacy JS
 const babel = require('gulp-babel');
 const minJS = require('gulp-uglify');
@@ -69,7 +66,6 @@ task('sass', () => src(STYLES, { sourcemaps: gulpIf(isProd == 'dev', true, false
   .pipe(sass())
   .pipe(concat('main.min.css'))
   .pipe(prefix())
-  .pipe(pxToRem({ drm: 2, rem: 8, one: false }))
   .pipe(gulpIf(isProd == 'build', cleanCss({ level: 2 })))
   .pipe(dest(`${DIST}/css`, { sourcemaps: gulpIf(isProd == 'dev', true, false) }))
   .pipe(reload({ stream: true })));
