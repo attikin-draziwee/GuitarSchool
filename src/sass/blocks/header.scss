@@ -5,9 +5,13 @@
   top: 14px;
   transform: translateX(-50%);
   &__container {
+    width: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+  @include adaptive($phone) {
+    padding: 0 15px;
   }
 }
