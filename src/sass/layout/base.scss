@@ -12,6 +12,9 @@ html, body {
   line-height: 1.42em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @include adaptive($phone) {
+    font-size: 14px;
+  }
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -52,8 +55,9 @@ section, header, footer {
   max-width: 1140px;
   width: 100%;
   margin: 0 auto;
-  @include adaptive($tablet) {
-    max-width: 750px;
+  @include adaptive($laptop) {
+    max-width: 100%;
+    padding: 0 15px;
   }
 }
 
@@ -61,8 +65,8 @@ section, header, footer {
   &__icon {
     transition: .3s ease;
     fill: rgb(80, 80, 80);
-    width: 146px;
-    height: 75px;
+    width: pxToRem(146px);
+    height: pxToRem(75px);
     &:hover {
       fill: black;
     }
@@ -73,8 +77,8 @@ section, header, footer {
   @include adaptive($phone) {
     display: none;
   }
-  min-width: 325px;
-  width: fit-content;
+  max-width: 325px;
+  width: 100%;
   &__list {
     justify-content: space-between;
   }
@@ -92,7 +96,7 @@ section, header, footer {
   }
   &__link {
     font-weight: 600;
-    font-size: 18px;
+    font-size: pxToRem(18px);
   }
 }
 
@@ -113,8 +117,8 @@ section, header, footer {
 }
 
 .social {
-  min-width: 201px;
-  width: fit-content;
+  max-width: 201px;
+  width: 100%;
   &__list {
     justify-content: space-between;
   }
@@ -126,6 +130,10 @@ section, header, footer {
   &__item {
     width: 36px;
     height: 36px;
+    @include adaptive($phone) {
+      width: 42px;
+      height: 42px;
+    }
     border-radius: 50%;
     background: linear-gradient(45deg, $accent-blue, $accent-orange);
     transition: transform .3s ease;
@@ -137,8 +145,8 @@ section, header, footer {
   &__link {
     border-radius: 50%;
     background-color: black;
-    height: 32px;
-    width: 32px;
+    height: 88%;
+    width: 88%;
   }
   &__icon {
     fill: white;
@@ -148,22 +156,22 @@ section, header, footer {
 }
 
 .heading {
-  font-size: 64px;
+  font-size: pxToRem(64px);
   font-weight: bold;
   letter-spacing: .05em;
   line-height: normal;
   &--under {
-    border-bottom: 4px solid black;
+    border-bottom: pxToRem(4px) solid black;
   }
 }
 
 .button {
   display: inline-block;
-  font-size: 14px;
+  font-size: pxToRem(14px);
   color: white;
   text-align: center;
-  line-height: 150%;
-  padding: 3px 25px;
+  line-height: 1.5em;
+  padding: 0.2em 1.8em;
   background-color: $accent-blue;
   border-radius: 4.5em;
   transition: .3s ease;
@@ -188,13 +196,13 @@ section, header, footer {
   &__icon {
     width: 48px;
     height: 48px;
-    margin-right: 19px;
+    margin-right: pxToRem(19px);
     transition: .3s ease;
   }
   &__desc {
-    max-width: 83px;
+    max-width: pxToRem(83px);
     width: 100%;
-    font-size: 16px;
+    font-size: pxToRem(16px);
     line-height: 150%;
   }
 }

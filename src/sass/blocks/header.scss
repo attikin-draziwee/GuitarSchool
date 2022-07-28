@@ -10,5 +10,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    @include adaptive($tablet) {
+      justify-content: space-evenly;
+    }
+    @include adaptive($phone) {
+      justify-content: space-between;
+    }
   }
 }
