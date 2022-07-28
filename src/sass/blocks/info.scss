@@ -7,14 +7,16 @@
     grid-template: 'promo content' 1fr/1fr 1fr;
     align-items: center;
     @include adaptive($tablet) {
-      grid-template: 'promo' 1.5fr
-        'content' 2fr 
+      grid-template: 'content' 1fr 
         / 1fr;
       justify-items: center;
     }
   }
   &__promo {
     grid-area: 'promo';
+    @include adaptive($tablet) {
+      display: none;
+    }
   }
   &__content {
     z-index: 6;

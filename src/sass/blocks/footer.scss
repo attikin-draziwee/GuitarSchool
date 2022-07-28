@@ -1,0 +1,40 @@
+.footer {
+  background: url('../img/vulture.webp') left bottom / 487px 353px no-repeat;
+  @include adaptive($laptop) {
+    background-position: -15% bottom;
+    background-size: 40vw auto;
+  }
+  @include adaptive($tablet) {
+    background-size: 450px auto;
+    background-position: -30% 320%;
+  }
+  @include adaptive($phone) {
+    background-size: 345px auto;
+    background-position: 0 140%;
+  }
+  &__heading {
+    margin-bottom: pxToRem(20px);
+  }
+  &__social {
+    @include adaptive($tablet) {
+      max-width: 100%;
+      & > .social__list {
+        justify-content: space-evenly;
+      }
+    }
+  }
+  &__container {
+    height: 391px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    @include adaptive ($tablet) {
+      justify-content: center;
+    }
+  }
+  &__content {
+    max-width: pxToRem(542px);
+    width: 100%;
+  }
+}
