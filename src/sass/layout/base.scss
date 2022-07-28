@@ -157,6 +157,10 @@ section, header, footer {
 }
 
 .heading {
+  align-self: flex-start;
+  @include adaptive($tablet) {
+    align-self: center;
+  }
   font-size: pxToRem(64px);
   font-weight: bold;
   letter-spacing: .05em;

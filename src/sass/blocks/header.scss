@@ -4,6 +4,9 @@
   left: 50%;
   top: 14px;
   transform: translateX(-50%);
+  @include adaptive($phone) {
+    position: fixed;
+  }
   &__container {
     width: auto;
     display: flex;

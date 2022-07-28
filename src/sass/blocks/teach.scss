@@ -1,0 +1,113 @@
+.teach {
+  &__container {
+    height: 700px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__heading {
+    margin-bottom: pxToRem(25px);
+  }
+  &__list {
+    width: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+    @include adaptive($tablet) {
+      width: 360px;
+    }
+    @include adaptive($phone) {
+      width: min(100%,360px);
+    }
+  }
+  &__item {
+    max-width: 360px;
+    width: 100%;
+    @include adaptive($tablet) {
+      position: relative;
+      left: 0;
+      flex-shrink: 0;
+      width: 100%;
+    }
+    &:nth-child(1) > .teach__card {
+        background-color: #E7E7E7;
+    }
+    &:nth-child(2) > .teach__card {
+        background-color: lighten($accent-orange, 8%);
+    }
+    &:nth-child(3) > .teach__card {
+        background-color: lighten($accent-blue, 8%);
+    }
+    &:nth-child(even) .teach__icon {
+      stroke: $accent-blue;
+      fill: transparent;
+    }
+    &:nth-child(odd)  .teach__icon {
+      stroke: $accent-orange;
+      fill: transparent;
+    }
+  }
+  &__card {
+    cursor: pointer;
+    height: 315px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 2px rgba(0,0,0,.25);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: pxToRem(25px);
+    &:hover {
+      > .teach__img {
+        transform: translateY(15px);
+      }
+    }
+  }
+  &__img {
+    position: absolute;
+    bottom: 0;
+    left: 8%;
+    transform: translateY(150px);
+    transition: .3s ease;
+  }
+  &__caption {
+    position: absolute;
+    right: 88px;
+    top: 50%;
+    text-align: center;
+    font-size: pxToRem(32px);
+    font-weight: 500;
+    letter-spacing: .05em;
+    line-height: 1.5em;
+    transform: translate(50%, -50%) rotate(90deg);
+  }
+  &__metas {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    @include adaptive($tablet) {
+      justify-content: center;
+    }
+  }
+  &__icon {
+    stroke-width: 2;
+    width: 80px;
+    height: 80px;
+    margin-right: pxToRem(18px);
+    &:hover {
+      animation: shake .5s ease;
+    }
+  }
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  &__meta {
+    transform-origin: center center;
+    animation: counts 2s ease infinite;
+    display: block;
+    font-size: pxToRem(36px);
+    font-weight: 600;
+    letter-spacing: .05em;
+  }
+}
