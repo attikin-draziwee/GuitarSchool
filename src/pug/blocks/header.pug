@@ -1,1 +1,7 @@
 header.header: .container.header__container
+  a.logo(href="index.html"): svg.logo__icon
+    use(xlink:href="/icons/sprite.svg#logo")
+  nav.menu: ul.menu__list
+    li.menu__item: a.menu__link(href='#') Обо мне
+    li.menu__item: a.menu__link(href='#') Занятия
+    li.menu__item: a.menu__link(href='#') Запись

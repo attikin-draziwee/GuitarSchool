@@ -4,7 +4,7 @@
 
 html, body {
   height: 100%;
-  font-size: Montserrat;
+  font-family: Montserrat;
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -29,6 +29,7 @@ ul {
 }
 
 a {
+  cursor: pointer;
   text-decoration: none;
   color: inherit;
 }
@@ -37,8 +38,9 @@ a {
   overflow: hidden;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   &-content {
+    position: relative;
     flex: 1;
   }
 }
@@ -46,4 +48,40 @@ a {
 .container {
   width: 1140px;
   margin: 0 auto;
+}
+
+.logo {
+  &__icon {
+    transition: .3s ease;
+    fill: rgb(80, 80, 80);
+    width: 146px;
+    height: 75px;
+    &:hover {
+      fill: black;
+    }
+  }
+}
+
+.menu {
+  max-width: 325px;
+  width: 100%;
+  &__list {
+    justify-content: space-between;
+  }
+  &__item {
+    white-space: nowrap;
+    transition: .3s ease;
+    &:hover {
+      &:nth-of-type(odd) {
+        color: $accent-orange;
+      }
+      &:nth-of-type(even) {
+        color: $accent-blue;
+      }
+    }
+  }
+  &__link {
+    font-weight: 600;
+    font-size: 18px;
+  }
 }

@@ -1,4 +1,13 @@
 .header {
-  font-size: 16px;
-  font-weight: normal;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
