@@ -52,6 +52,7 @@ section, header, footer {
 }
 
 .container {
+  position: relative;
   max-width: 1140px;
   width: 100%;
   margin: 0 auto;
@@ -205,4 +206,14 @@ section, header, footer {
     font-size: pxToRem(16px);
     line-height: 150%;
   }
+}
+
+.donut {
+  &__list {
+    position: absolute;
+    > .donut__item {
+      position: absolute;
+    }
+  }
+  
 }

@@ -145,4 +145,25 @@
     flex-direction: row;
     justify-content: space-between;
   }
+  &__donut {
+    & > .donut__item:nth-of-type(1) {
+      left: 100%;
+      z-index: -1;
+      top: -23px;
+      left: 176px;
+      width: 208px;
+      height: 208px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, lighten($accent-blue, 10%), lighten($accent-orange, 10%));
+      &::after {
+        content: '';
+        transform: translate(50%,50%);
+        position: absolute;
+        width: 103px;
+        height: 103px;
+        border-radius: 50%;
+        background-color: #F2F2F2;
+      }
+    }
+  }
 }
