@@ -4,6 +4,11 @@
   left: 50%;
   top: 14px;
   transform: translateX(-50%);
+  @include adaptive($tablet) {
+    top: 0;
+    padding-block: 14px;
+    background-color: #fff;
+  }
   @include adaptive($phone) {
     position: fixed;
   }
